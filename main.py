@@ -1,8 +1,8 @@
-import numpy
+"""
+Final product to predict <        >
+"""
 
-array = numpy.zeros(10, int)
-print(array)
 
-print("Bryan's push")
-print("Ruiwen's push")
-print("CYL's push")
+"""People that have joined repo
+
+    CYL, BRYAN, RUIWEN"""
