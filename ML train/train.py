@@ -5,6 +5,9 @@ Place where the model will be trained
 import tensorflow as tf
 import numpy as np
 import pandas as pd
+from tensorflow.keras.models import load_model
+
+
 
 # Load data
 df = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\final_dataset.csv")
@@ -40,16 +43,21 @@ train_normal_df = df.drop(test_normal_df.index)
 
 print('Normal df', test_normal_df)
 
-# Define model
-model = tf.keras.Sequential([
-    tf.keras.layers.LSTM(64, activation='relu', return_sequences=True, input_shape= (11,52000)),
-    tf.keras.layers.Dropout(0.1),
-    tf.keras.layers.LSTM(32, activation='relu'),
-    tf.keras.layers.Dropout(0.1),
-    tf.keras.layers.LSTM(32, activation='relu'),
-    tf.keras.layers.Dropout(0.1),
-    tf.keras.layers.Dense(2)
-])
+### Choose to either Define or load existing model ###
+
+# # Define model
+# model = tf.keras.Sequential([
+#     tf.keras.layers.LSTM(64, activation='relu', return_sequences=True, input_shape= (11,52000)),
+#     tf.keras.layers.Dropout(0.1),
+#     tf.keras.layers.LSTM(32, activation='relu'),
+#     tf.keras.layers.Dropout(0.1),
+#     tf.keras.layers.LSTM(32, activation='relu'),
+#     tf.keras.layers.Dropout(0.1),
+#     tf.keras.layers.Dense(2)
+# ])
+
+# Load model
+model = load_model('my_model.h5')
 
 # Compile model
 model.compile(optimizer='adam', loss='mse')
