@@ -45,19 +45,19 @@ print('Normal df', test_normal_df)
 
 ### Choose to either Define or load existing model ###
 
-# # Define model
-# model = tf.keras.Sequential([
-#     tf.keras.layers.LSTM(64, activation='relu', return_sequences=True, input_shape= (11,52000)),
-#     tf.keras.layers.Dropout(0.1),
-#     tf.keras.layers.LSTM(32, activation='relu'),
-#     tf.keras.layers.Dropout(0.1),
-#     tf.keras.layers.LSTM(32, activation='relu'),
-#     tf.keras.layers.Dropout(0.1),
-#     tf.keras.layers.Dense(2)
-# ])
+# Define model
+model = tf.keras.Sequential([
+    tf.keras.layers.LSTM(64, activation='relu', return_sequences=True, input_shape= (11,52000)),
+    tf.keras.layers.Dropout(0.1),
+    tf.keras.layers.LSTM(32, activation='relu'),
+    tf.keras.layers.Dropout(0.1),
+    tf.keras.layers.LSTM(32, activation='relu'),
+    tf.keras.layers.Dropout(0.1),
+    tf.keras.layers.Dense(2)
+])
 
-# Load model
-model = load_model('my_model.h5')
+# # Load model
+# model = load_model('.h5')
 
 # Compile model
 model.compile(optimizer='adam', loss='mse')
