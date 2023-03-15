@@ -1,7 +1,5 @@
 """
 Place where the model will be trained
-
-This is currently only a baseline code to follow
 """
 
 import tensorflow as tf
@@ -45,10 +43,12 @@ print('Normal df', test_normal_df)
 # Define model
 model = tf.keras.Sequential([
     tf.keras.layers.LSTM(64, activation='relu', return_sequences=True, input_shape= (11,52000)),
-    tf.keras.layers.Dropout(0.2),
+    tf.keras.layers.Dropout(0.1),
     tf.keras.layers.LSTM(32, activation='relu'),
-    tf.keras.layers.Dropout(0.2),
-    tf.keras.layers.Dense(1)
+    tf.keras.layers.Dropout(0.1),
+    tf.keras.layers.LSTM(32, activation='relu'),
+    tf.keras.layers.Dropout(0.1),
+    tf.keras.layers.Dense(2)
 ])
 
 # Compile model
