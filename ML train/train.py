@@ -9,10 +9,7 @@ import numpy as np
 import pandas as pd
 
 # Load data
-data = pd.read_csv("data.csv")
-
-# Preprocess data
-# ...
+data = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\final_dataset.csv")
 
 # Define model
 model = tf.keras.Sequential([
