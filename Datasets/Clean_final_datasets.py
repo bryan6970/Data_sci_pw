@@ -21,8 +21,17 @@ print(energy_df)
 merged_df_1 = pd.merge(energy_df, weather_df, on='DateTime', how='left')
 final_df = pd.merge(merged_df_1, holiday_df, on='DateTime', how='left')
 
-# Sub NaN values for -1
-final_df = final_df.fillna(-1)
+final_df['DateTime'] = pd.to_datetime(final_df['DateTime'])
+
+# Get rid of date but keep time
+final_df['Time'] = final_df['DateTime'].dt.time
+
+final_df = final_df.drop('DateTime', axis = 1)
+
+final_df.insert(0, 'Time', final_df.pop('Time'))
+
+# Remove all NaN vals
+final_df = final_df.dropna()
 
 input(final_df)
 
