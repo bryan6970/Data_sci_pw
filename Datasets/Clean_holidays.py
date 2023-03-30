@@ -11,7 +11,7 @@ with open(r"limitations.txt", "r") as f:
     end_date = pd.to_datetime('2020-01-01')
 
 # Load dataset
-holiday_df = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Uncleaned_datasets\holiday.csv")
+holiday_df = pd.read_csv(r"/Datasets/Uncleaned_datasets/singapore residential datasets/short term/holiday.csv")
 
 # Rename Date col to DateTime
 holiday_df = holiday_df.rename(columns={"Date": "DateTime"})

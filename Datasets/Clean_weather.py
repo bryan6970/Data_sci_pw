@@ -12,7 +12,7 @@ with open(r"limitations.txt", "r") as f:
 # load dfs
 df_locationA = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Uncleaned_datasets\angmokio.csv")
 
-df_locationB= pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Uncleaned_datasets\changi.csv")
+df_locationB= pd.read_csv(r"/Datasets/Uncleaned_datasets/singapore residential datasets/short term/changi.csv")
 
 df_locationC= pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Uncleaned_datasets\tuassouth.csv")
 
