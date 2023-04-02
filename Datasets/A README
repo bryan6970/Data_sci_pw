@@ -8,6 +8,8 @@ Monthly household income
 
 Amount of rain
 
+Energy price (in grams of gold)
+
 
 ### IMPLEMENT INTO A FINER MODEL ###
 
@@ -15,8 +17,8 @@ half hour weather
 
 rain amount
 
-is holiday
+is holiday (number is the amount of people celebrating it, if it's a simple pubilc holiday, value will be 1)
 
-temp
+temp (deg cel)
 
-wind
+wind (knots)
