@@ -1,4 +1,6 @@
-DATA that are being used is
+Bryan's proposal
+
+### DATA needed ###
 
 Housing size
 
@@ -9,6 +11,20 @@ Monthly household income
 Amount of rain
 
 Energy price (in grams of gold)
+
+Population
+
+Space Index (don't know how to derive yet)
+
+% of Industrial land
+
+Industrial GPD per capital
+
+% of commecial land
+
+Commercial GPD per captial
+
+% of residential land
 
 
 ### IMPLEMENT INTO A FINER MODEL ###
@@ -22,3 +38,20 @@ is holiday (number is the amount of people celebrating it, if it's a simple pubi
 temp (deg cel)
 
 wind (knots)
+
+
+### Training models ###
+
+Industrial model
+Takes in all inputs, will be evaluated on industral eletrcity usage
+
+Commercial model
+
+Same as above
+
+
+Residential model
+
+1 model for eletrcity, one model for gas (methane)
+
+
