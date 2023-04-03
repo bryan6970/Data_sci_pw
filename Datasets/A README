@@ -2,29 +2,50 @@ Bryan's proposal
 
 ### DATA needed ###
 
-Housing size
+Affluence:
+  Median housing size
 
-If poverty
+  % of poverty
 
-Monthly household income
+  Monthly household income
 
-Amount of rain
+  Amount of rain
 
-Energy price (in grams of gold)
+  Energy price (in grams of gold)
 
-Population
 
-Space Index (don't know how to derive yet)
 
-% of Industrial land
+Demographics:
+  Population
 
-Industrial GPD per capital
+  Number of boys
+  
+  Number of girls
+  
+  Number of working class males
+  
+  Number of working class females
+  
+  Number of retired males
+  
+  Number of retired females
 
-% of commecial land
 
-Commercial GPD per captial
+Land:
+  Space Index (don't know how to derive yet)
 
-% of residential land
+  % of Industrial land
+  
+  % of commecial land
+
+  % of residential land
+  
+
+Commercial/ Industrial Affluence:
+  Industrial GPD per capital
+ 
+  Commercial GPD per captial
+
 
 
 ### IMPLEMENT INTO A FINER MODEL ###
