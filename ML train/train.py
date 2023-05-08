@@ -6,67 +6,49 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 
+from tensorflow.keras.layers import LSTM, Dense, Input, concatenate
+from tensorflow.keras.models import Model
+from tensorflow.keras.optimizers import Adam
 
-# Load data
-df = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\final_dataset.csv")
+from collections import namedtuple
 
-# Parse dataset
-print(df)
+# Train the model with your data
+x_train_1 = ...  # Your data for the first LSTM model
+x_train_2 = ...  # Your data for the second LSTM model
 
-# # Remove DateTime col
-# df = df.shuffle(frac=1)
-# df = df.drop("DateTime", axis=1)
+x_train_data = []
+y_train = ...  # Your target data
 
-# Separate the Energy col
-energy_data = df[["Energy"]]
 
-normal_data = df.drop("Energy", axis=1)
+LSTM_Models = {}
 
-print(energy_data)
+# Define input shape (Time steps, Features)
+Model_input_shapes = [(10, 1)]
 
-print("\n\n\n\n")
+# Create LSTM models
+for i, input_shape in enumerate(Model_input_shapes):
+    input_1 = Input(shape=input_shape)
+    lstm_1 = LSTM(64)(input_1)
+    LSTM_Models[f"LSTM_Model_{i}"] = Model(inputs=input_1, outputs=lstm_1)
 
-print(normal_data)
 
-# Get training and testing data
-# 2225 rows allocated to testing
+# Combine LSTM models
+combined = concatenate([model.output for model in LSTM_Models.values()])
+dense = Dense(1)(combined)
+Final_model = Model(inputs=[model.input for model in LSTM_Models.values()], outputs=dense)
 
-# Randomly select the rows to remove
-test_energy_df = energy_data.sample(2225)
-test_normal_df = normal_data.sample(2225)
+# Compile the model with an optimizer, loss function, and metric(s)
+optimizer = Adam(learning_rate=0.001)
+Final_model.compile(optimizer=optimizer, loss='mean_squared_error', metrics=['mae'])
 
-# Remove the test rows from the original DataFrame
-train_energy_df = df.drop(test_energy_df.index)
-train_normal_df = df.drop(test_normal_df.index)
 
-print('Normal df', test_normal_df)
+# Or just load an old model
+# Final_model = load_model('my_model.h5')
 
-### Choose to either Define or load existing model ###
 
-# Define model
-model = tf.keras.Sequential([
-    tf.keras.layers.LSTM(64, activation='relu', return_sequences=True, input_shape= (11,50000)),
-    tf.keras.layers.Dropout(0.1),
-    tf.keras.layers.LSTM(32, activation='relu'),
-    tf.keras.layers.Dropout(0.1),
-    tf.keras.layers.LSTM(32, activation='relu'),
-    tf.keras.layers.Dropout(0.1),
-    tf.keras.layers.Dense(2)
-])
+Final_model.fit([x_train for x_train in x_train_data], y_train, epochs=10, batch_size=32)
 
-# # Load model
-# model = load_model('.h5')
+# Save the trained model
+Final_model.save('my_model.h5')
 
-# Compile model
-model.compile(optimizer='adam', loss='mse')
 
-# Train model
-model.fit(train_normal_df, train_energy_df, epochs=100, batch_size=32)
-
-# Evaluate model
-loss = model.evaluate(test_normal_df, test_energy_df)
-
-# Make predictions
-predictions = model.predict(test_normal_df)
-
-model.save('Model')
