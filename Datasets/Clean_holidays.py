@@ -51,6 +51,7 @@ day_map = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5
 # add a new column to the dataframe and map the days of the week to numerical labels
 holiday_df['Day'] = holiday_df['DateTime'].dt.day_name()
 
+print(holiday_df)
 
 # # Clean the day and holidays to a number
 holiday_df['Day'] = holiday_df['Day'].map(day_map)
@@ -72,5 +73,5 @@ holiday_df = holiday_df.reset_index()
 input(holiday_df)
 
 # Write to csv
-holiday_df.to_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Cleaned_datasets\holiday.csv", index = False)
+# holiday_df.to_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Cleaned_datasets\holiday.csv", index = False)
 
