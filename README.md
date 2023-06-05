@@ -31,12 +31,14 @@ df.columns[index]
 ```
 
 # Changing Column Names
-```python original_name = 'original_name'
+```python 
+original_name = 'original_name'
 final_name = 'final_name'
 df.rename(columns={original_name: final_name}, inplace=True)
 ```
 # Changing to DateTime Format
-```pythoniter = ['2022-01-01', '2022-01-02']
+```python
+iter = ['2022-01-01', '2022-01-02']
 pd.to_datetime(iter)
 ```
 # Getting Unique Values in an Array
