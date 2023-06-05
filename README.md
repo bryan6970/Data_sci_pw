@@ -1,20 +1,23 @@
 import pandas as pd
 
 # Creating a DataFrame
-df = pd.DataFrame([[1, 2], [1, 2]])
-df = pd.read_csv(filepath)
+```python
+df = pd.DataFrame([[1, 2], [1, 2]])  
+df = pd.read_csv(filepath)  
+```
 
 # Getting Rows of a DataFrame
-row_number = 0
-row_numbers = [0, 1]
-row_name = 'row_label'
-row_names = ['row_label1', 'row_label2']
+```python
+row_number = 0   
+row_numbers = [0, 1]  
+row_name = 'row_label'  
+row_names = ['row_label1', 'row_label2']  
 
-df.iloc[row_number].values
-df.iloc[row_numbers].values
-df.loc[row_name]
-df.loc[row_names]
-
+df.iloc[row_number].values  
+df.iloc[row_numbers].values   
+df.loc[row_name]  
+df.loc[row_names]  
+```
 # Getting Columns of a DataFrame
 col_name = 'column_name'
 df[col_name]
