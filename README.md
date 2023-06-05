@@ -1,4 +1,12 @@
-import pandas as pd
+# Pandas installation
+``` shell
+pip install pandas
+```
+# Usage of Pandas
+Import the library
+```python
+import pandas
+```
 
 # Creating a DataFrame
 ```python
