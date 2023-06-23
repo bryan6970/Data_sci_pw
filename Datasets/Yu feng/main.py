@@ -24,7 +24,6 @@ for filename, df in csv_data.items():
     dataset_dict[filename[5:8]] = df
 
 for key, df in dataset_dict.items():
-
     df.drop("INFORMATION TYPE", inplace=True, axis=1)
 
     df["DATE"] = pd.to_datetime(df["DATE"])
@@ -40,6 +39,5 @@ for key, df in dataset_dict.items():
     df.drop("TCL (MW)", inplace=True, axis=1)
 
     df.rename(columns={"USEP ($/MWh)": "Grams of gold / MWh"}, inplace=True)
-
 
     df.to_csv(f"2018 {key}.csv")
