@@ -3,7 +3,7 @@
 import pandas as pd
 
 # Get limitations
-with open(r"limitations.txt", "r") as f:
+with open(r"../limitations.txt", "r") as f:
     limitations = f.readlines()[-1].split(',')
     start_date, end_date = [pd.to_datetime(date) for date in limitations]
 
