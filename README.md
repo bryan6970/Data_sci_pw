@@ -44,6 +44,27 @@ original_name = 'original_name'
 final_name = 'final_name'
 df.rename(columns={original_name: final_name}, inplace=True)
 ```
+
+# Delete column
+```python
+df.drop(name, inplace=True, axis=1)
+```
+
+# Delete/Replace NA values
+```python
+df.dropna(inplace=True)
+
+df.fillna(method=METHOD, inplace = True) 
+# ffill Fills with the previous value 
+# bfill Fills with the next value 
+
+df.fillna(str/int, inplace = True)
+```
+# Do math with colum
+```python
+df[name] * number
+```
+
 # Changing to DateTime Format
 ```python
 iter = ['2022-01-01', '2022-01-02']
@@ -73,4 +94,8 @@ df.resample(timeframe).mean()
 ```python
 day_map = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7}
 df["day"].map(day_map)
+```
+# Saving a Dataframe
+```python
+df.to_csv("__name__")
 ```
