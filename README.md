@@ -1,7 +1,3 @@
-# Pandas installation
-``` shell
-pip install pandas
-```
 # Install all libraries used
 ```shell
 pip install -r requirements.txt
