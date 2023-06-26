@@ -67,7 +67,7 @@ df.fillna(method=METHOD, inplace = True)
 # ffill Fills with the previous value 
 # bfill Fills with the next value 
 
-df.fillna([value to replace the NA values](f03c15), inplace = True)
+df.fillna($${\color{value to replace the NA values}Red}$$, inplace = True)
 ```
 ## Do math with column
 ```python
