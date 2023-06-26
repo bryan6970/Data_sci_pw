@@ -1,6 +1,11 @@
 # Warning
-In no way is this piece of documentation accurate or reliable, use it at your own risk
-
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
 # Install all libraries used
 ```shell
 pip install -r requirements.txt
@@ -67,7 +72,7 @@ df.fillna(method=METHOD, inplace = True)
 # ffill Fills with the previous value 
 # bfill Fills with the next value 
 
-df.fillna($${\color{red}value to replace the NA values}$$, inplace = True)
+df.fillna(value, inplace=True)
 ```
 ## Do math with column
 ```python
