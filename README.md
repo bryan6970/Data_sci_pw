@@ -3,6 +3,11 @@
 pip install -r requirements.txt
 ```
 
+# For after 26/6/23
+```shell
+pip install matplotlib==3.7.1
+```
+
 # Usage of Pandas
 Import the library
 ```python
