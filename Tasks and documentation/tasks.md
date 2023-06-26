@@ -7,6 +7,8 @@
 >3. Data cleaning
 >4. training
 
+Limitations have not been decided yet, so data from whatever time frame is ok.
+
 ## Yu feng's tasks
 
 **Land:**  
