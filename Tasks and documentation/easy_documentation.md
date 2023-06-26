@@ -95,9 +95,7 @@ For details, please read the [documentation](https://pandas.pydata.org/docs/refe
 
 ## Date range
 [Date Range](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html) is a format that has a range of dates. This can be useful to get rid of values that are out of the studied date range.   
-Use `df = df[df['Date'].isin(date_range)]`. [Details on the `isin()` method](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isin.html?highlight=isin#pandas.DataFrame.isin)
-For details, please read the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html) by pandas.
-
+Use `df = df[df['Date'].isin(date_range)]`. [Details on the `isin()` method.](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isin.html?highlight=isin#pandas.DataFrame.isin)
 
 ## Getting Unique Values in an Array
 ```python 
@@ -174,7 +172,7 @@ I strongly recommend you look at the [Pandas plot documentation](https://pandas.
 ## Plotting different kinds of graphs
 `df.plot(kind:str)`
 
-kind is a parameter in df.plot, and you will input the string into it. The default is a line plot.
+`kind` is a parameter in df.plot, and you will input a string from above into it. The default input is a line plot.
 
 
 
