@@ -83,8 +83,11 @@ pd.to_datetime(iter)
 ## Time delta
 [TimeDelta](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html?highlight=timedelta#pandas.Timedelta) is a format that represents a set amount of time.
 DateTime values can be added to TimeDelta values to advance the DateTime.
-`pd.TimeDelta(minutes=30)`    
-Or adding time to a df.  
+```python
+dt = pd.to_datetime("03:03:2020")
+dt += pd.TimeDelta(minutes=30)
+```    
+It can also be used to add time to a df.  
 `df["DateTime"] += pd.TimeDelta(30, unit="minutes")`  
 For details, please read the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html?highlight=timedelta#pandas.Timedelta) by pandas.
 
