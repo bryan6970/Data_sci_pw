@@ -5,6 +5,7 @@ import pandas as pd
 
 dataset_dict = {}
 
+# PRICE_OF_GOLD_IN_2018 = (read frm ruiwen's csv file)
 
 def load_csv_files(folder_path):
     data = {}
@@ -32,7 +33,7 @@ for key, df in dataset_dict.items():
 
     df.drop("PERIOD", inplace=True, axis=1)
 
-    df["USEP ($/MWh)"] = (df["USEP ($/MWh)"] / 55).__round__(5)
+    df["USEP ($/MWh)"] = (df["USEP ($/MWh)"] / PRICE_OF_GOLD_IN_2018).__round__(5)
 
     df.drop("LCP ($/MWh)", inplace=True, axis=1)
 
