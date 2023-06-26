@@ -119,7 +119,7 @@ import matplotlib.pyplot as plt
 The function `df.plot()` is `df.plot(*args, **kwargs)`
 
 A parameter that you will pass in is x and y.
-This will label your axes
+This will label your axes  
 `df.plot(x="Name of col that you want to be the x axis", y="Name of col that you want to be the y axis")`
 
 ## Pandas plot documentation
