@@ -61,16 +61,10 @@ df.rename(columns={original_name: final_name}, inplace=True)
 df.drop(name, inplace=True, axis=1)
 ```
 
-## Delete/Replace NA values
-```python
-df.dropna(inplace=True)
+## Working with missing values
+Leave the missing values there first, I need to read through the documentation to be sure what to do.
+If you are brave, you can read the [documentation](https://pandas.pydata.org/docs/user_guide/missing_data.html).
 
-df.fillna(method=METHOD, inplace = True) 
-# ffill Fills with the previous value 
-# bfill Fills with the next value 
-
-df.fillna(value, inplace=True)
-```
 ## Do math with column
 ```python
 df[name] * number
@@ -107,11 +101,7 @@ colname = 'column_name'
 df.set_index(colname, inplace=True)
 df.reset_index(inplace=True)
 ```
-## Filling in Missing Values
-```python
-fill_with_something = 0
-df["test_col"].fillna(fill_with_something)
-```
+
 ## Resampling the Timeframe
 ```python
 timeframe = 'D'
@@ -122,6 +112,10 @@ df.resample(timeframe).mean()
 day_map = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7}
 df["day"].map(day_map)
 ```
+
+## Merging 2 DataFrames
+The [documentation](https://pandas.pydata.org/docs/user_guide/merging.html#automatic-alignment) is really straightforward, take a look at it.
+
 ## Saving a Dataframe
 ```python
 df.to_csv("__name__")
@@ -147,32 +141,32 @@ I strongly recommend you look at the [Pandas plot documentation](https://pandas.
 `df.plot(tittle:str)`
 
 ## There are different kinds of plots
-‘line’ : line plot (default)
-
-‘bar’ : vertical bar plot
-
-‘barh’ : horizontal bar plot
-
-‘hist’ : histogram
-
-‘box’ : boxplot
-
-‘kde’ : Kernel Density Estimation plot
-
-‘density’ : same as ‘kde’
-
-‘area’ : area plot
-
-‘pie’ : pie plot
-
-‘scatter’ : scatter plot (DataFrame only)
-
-‘hexbin’ : hexbin plot (DataFrame only)
+>‘line’ : line plot (default)
+>
+>‘bar’ : vertical bar plot
+>
+>‘barh’ : horizontal bar plot
+>
+>‘hist’ : histogram
+>
+>‘box’ : boxplot
+>
+>‘kde’ : Kernel Density Estimation plot
+>
+>‘density’ : same as ‘kde’
+>
+>‘area’ : area plot
+>
+>‘pie’ : pie plot
+>
+>‘scatter’ : scatter plot (DataFrame only)
+>
+>‘hexbin’ : hexbin plot (DataFrame only)
 
 ## Plotting different kinds of graphs
 `df.plot(kind:str)`
 
-`kind` is a parameter in df.plot, and you will input a string from above into it. The default input is a line plot.
+`kind` is a parameter in df.plot, and you can input a string from above into it. The default input is a line plot.
 
 
 
