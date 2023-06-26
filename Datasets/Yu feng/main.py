@@ -28,7 +28,7 @@ for key, df in dataset_dict.items():
 
     df["DATE"] = pd.to_datetime(df["DATE"])
 
-    df["DATE"] = df.apply(lambda row: row["DATE"] + pd.Timedelta(minutes=row["PERIOD"] * 30), axis=1)
+    df["DATE"] += pd.Timedelta(df["PERIOD"] * 30, unit='minutes')
 
     df.drop("PERIOD", inplace=True, axis=1)
 
