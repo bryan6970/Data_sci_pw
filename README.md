@@ -67,7 +67,7 @@ df.fillna(method=METHOD, inplace = True)
 # ffill Fills with the previous value 
 # bfill Fills with the next value 
 
-df.fillna(str/int, inplace = True)
+df.fillna([value to replace the NA values](f03c15), inplace = True)
 ```
 ## Do math with column
 ```python
