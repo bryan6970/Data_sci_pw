@@ -81,9 +81,12 @@ iter = ['2022-01-01', '2022-01-02']
 pd.to_datetime(iter)
 ```
 ## Time delta
-[TimeDelta](https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html) is a format that represents a set amount of time.
-DateTime values can be added to TimeDelta values to advance the DateTime.  
-For details, please read the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html) by pandas.
+[TimeDelta](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html?highlight=timedelta#pandas.Timedelta) is a format that represents a set amount of time.
+DateTime values can be added to TimeDelta values to advance the DateTime.
+`pd.TimeDelta(minutes=30)`    
+Or adding time to a df.  
+`df["DateTime"] += pd.TimeDelta(30, unit="minutes")`  
+For details, please read the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html?highlight=timedelta#pandas.Timedelta) by pandas.
 
 ## Date range
 [Date Range](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html) is a format that has a range of dates. This can be useful to get rid of values that are out of the studied date range.   
