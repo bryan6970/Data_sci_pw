@@ -1,7 +1,6 @@
 # Warning
 ---  
-<font "color:red">In no way is this piece of documentation accurate or reliable, use it at your own risk</font>  
-
+<font color="red">In no way is this piece of documentation accurate or reliable, use it at your own risk </font>  
 
 # Install all libraries used
 ```shell
