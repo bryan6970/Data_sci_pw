@@ -1,5 +1,6 @@
 """
 Place where the model will be trained
+Using task scheduler in microsoft to train
 """
 
 import tensorflow as tf
@@ -11,6 +12,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
 
 from collections import namedtuple
+
 
 # Train the model with your data
 x_train_1 = ...  # Your data for the first LSTM model
