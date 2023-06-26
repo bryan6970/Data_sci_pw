@@ -1,7 +1,7 @@
 # Warning
 ---  
 ```diff
-- In no way is this piece of documentation accurate or reliable, use it at your own risk </font>  
+- In no way is this piece of documentation accurate or reliable, use it at your own risk  
 ```
 # Install all libraries used
 ```shell
