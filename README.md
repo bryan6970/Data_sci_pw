@@ -1,3 +1,6 @@
+# Warning
+In no way is this piece of documentation accurate or reliable, use it at your own risk
+
 # Install all libraries used
 ```shell
 pip install -r requirements.txt
@@ -8,8 +11,8 @@ pip install -r requirements.txt
 pip install matplotlib
 ```
 
-# Usage of Pandas
-Import the library
+# Pandas
+## Import the library
 ```python
 import pandas
 ```
@@ -105,5 +108,59 @@ df["day"].map(day_map)
 ```python
 df.to_csv("__name__")
 ```
+# Plotting
+## Import the library
+```python
+import matplotlib.pyplot as plt
+```
+
+
+# How to plot a graph
+The function `df.plot()` is `df.plot(*args, **kwargs)`
+
+A parameter that you will pass in is x and y.
+This will label your axes
+`df.plot(x="Name of col that you want to be the x axis", y="Name of col that you want to be the y axis")`
+
+## Pandas plot documentation
+I strongly recommend you look at the [Pandas plot documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html) as well, it will give you a very good understanding of what is going on.
+
+## Adding titles
+`df.plot(tittle:str)`
+
+## There are different kinds of plots
+‘line’ : line plot (default)
+
+‘bar’ : vertical bar plot
+
+‘barh’ : horizontal bar plot
+
+‘hist’ : histogram
+
+‘box’ : boxplot
+
+‘kde’ : Kernel Density Estimation plot
+
+‘density’ : same as ‘kde’
+
+‘area’ : area plot
+
+‘pie’ : pie plot
+
+‘scatter’ : scatter plot (DataFrame only)
+
+‘hexbin’ : hexbin plot (DataFrame only)
+
+## Plotting different kinds of graphs
+`df.plot(kind:str)`
+
+kind is a parameter in df.plot, and you will input the string into it. The default is a line plot.
+
+
+
+
+
+
+
 
 
