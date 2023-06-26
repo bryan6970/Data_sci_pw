@@ -69,16 +69,28 @@ df.fillna(method=METHOD, inplace = True)
 
 df.fillna(str/int, inplace = True)
 ```
-## Do math with colum
+## Do math with column
 ```python
 df[name] * number
 ```
 
 ## Changing to DateTime Format
+You may want to change dates to [DateTime format](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html) so it is easier to work with.  
 ```python
 iter = ['2022-01-01', '2022-01-02']
 pd.to_datetime(iter)
 ```
+## Time delta
+[TimeDelta](https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html) is a format that represents a set amount of time.
+DateTime values can be added to TimeDelta values to advance the DateTime.  
+For details, please read the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html) by pandas.
+
+## Date range
+[Date Range](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html) is a format that has a range of dates. This can be useful to get rid of values that are out of the studied date range.   
+Use `df = df[df['Date'].isin(date_range)]`. [Details on the `isin()` method](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isin.html?highlight=isin#pandas.DataFrame.isin)
+For details, please read the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html) by pandas.
+
+
 ## Getting Unique Values in an Array
 ```python 
 df.iloc[0].unique()
