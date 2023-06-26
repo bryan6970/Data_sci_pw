@@ -1,11 +1,8 @@
 # Warning
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
+---  
+<font "color:red">In no way is this piece of documentation accurate or reliable, use it at your own risk</font>  
+
+
 # Install all libraries used
 ```shell
 pip install -r requirements.txt
@@ -20,6 +17,8 @@ pip install matplotlib
 ## Import the library
 ```python
 import pandas
+df.fillna(<font color="red">value to replace the NA values</font>, inplace=True)
+
 ```
 
 ## Creating a DataFrame
