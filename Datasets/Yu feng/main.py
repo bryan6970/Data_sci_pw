@@ -1,11 +1,23 @@
-import pandas as pd
-
 import os
 import pandas as pd
+import importlib
+import importlib
+import sys
+
+import sys
+import os
+from repository_utils import get_repo_root
+
+Gold_dataset = pd.read_csv(
+    os.path.join(get_repo_root(), "Datasets/Ruiwen/Gold prices/1979-2021 gold prices datetime changed.csv"))
+
+Gold_dataset["DateTime"] = pd.to_datetime(Gold_dataset["DateTime"])
+PRICE_OF_GOLD_IN_2018 = Gold_dataset[Gold_dataset["DateTime"].dt.year == 2018].mean()
+
+print(PRICE_OF_GOLD_IN_2018)
 
 dataset_dict = {}
 
-# PRICE_OF_GOLD_IN_2018 = (read frm ruiwen's csv file)
 
 def load_csv_files(folder_path):
     data = {}
@@ -29,11 +41,11 @@ for key, df in dataset_dict.items():
 
     df["DATE"] = pd.to_datetime(df["DATE"])
 
-    df["DATE"] += pd.Timedelta(df["PERIOD"] * 30, unit='minutes')
+    df["DATE"] = df.apply(lambda row: row["DATE"] + pd.Timedelta(minutes=row["PERIOD"] * 30), axis=1)
 
     df.drop("PERIOD", inplace=True, axis=1)
 
-    df["USEP ($/MWh)"] = (df["USEP ($/MWh)"] / PRICE_OF_GOLD_IN_2018).__round__(5)
+    df["USEP ($/MWh)"] = (df["USEP ($/MWh)"] / PRICE_OF_GOLD_IN_2018)
 
     df.drop("LCP ($/MWh)", inplace=True, axis=1)
 
