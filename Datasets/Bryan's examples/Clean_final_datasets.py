@@ -1,19 +1,20 @@
 # Clean data
+# Example
 
 import pandas as pd
 
 # Parse code into final dataset
 
 # Load weather df
-weather_df = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Cleaned_datasets\weather.csv")
+weather_df = pd.read_csv(r"Datasets\Cleaned_datasets\weather.csv")
 print(weather_df)
 
 # Load in holiday file
-holiday_df = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Cleaned_datasets\holiday.csv")
+holiday_df = pd.read_csv(r"Datasets\Cleaned_datasets\holiday.csv")
 print(holiday_df)
 
 # Load energy consumption file
-energy_df = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Cleaned_datasets\energy_consumption.csv")
+energy_df = pd.read_csv(r"Datasets\Cleaned_datasets\energy_consumption.csv")
 
 print(energy_df)
 
@@ -36,5 +37,5 @@ final_df = final_df.dropna()
 input(final_df)
 
 # Write to CSV file
-final_df.to_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\final_dataset.csv", index=False)
+final_df.to_csv(r"Datasets\final_dataset.csv", index=False)
 

@@ -1,3 +1,6 @@
+# Example file
+
+
 import pandas as pd
 
 
@@ -10,11 +13,11 @@ with open(r"../limitations.txt", "r") as f:
 # Merge amk, tuas, and changi datasets
 
 # load dfs
-df_locationA = pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Uncleaned_datasets\angmokio.csv")
+df_locationA = pd.read_csv(r"Datasets\Uncleaned_datasets\angmokio.csv")
 
 df_locationB= pd.read_csv(r"/Datasets/Uncleaned_datasets/singapore residential datasets/short term/changi.csv")
 
-df_locationC= pd.read_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Uncleaned_datasets\tuassouth.csv")
+df_locationC= pd.read_csv(r"Datasets\Uncleaned_datasets\tuassouth.csv")
 
 # Merge dfs
 merged_df = pd.concat([df_locationA, df_locationB, df_locationC])
@@ -49,4 +52,4 @@ weather_df = weather_df.reset_index()
 input(f"Press enter to confirm \n\n\n{weather_df}\n\n\nPress enter to confirm" )
 
 # Write to csv
-weather_df.to_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Cleaned_datasets\weather.csv", index=False)
+weather_df.to_csv(r"Datasets\Cleaned_datasets\weather.csv", index=False)

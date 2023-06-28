@@ -1,4 +1,4 @@
-# Clean holidays dataset
+# Clean holidays dataset (Example)
 
 import pandas as pd
 
@@ -72,6 +72,4 @@ holiday_df = holiday_df.reset_index()
 
 input(holiday_df)
 
-# Write to csv
-# holiday_df.to_csv(r"C:\Users\wong2\PycharmProjects\Data_sci_pw\Datasets\Cleaned_datasets\holiday.csv", index = False)
 
