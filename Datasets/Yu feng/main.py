@@ -1,10 +1,7 @@
-import os
-import pandas as pd
-import importlib
-import importlib
-import sys
+import warnings
 
-import sys
+import pyforest  # this will import any common modules that you missed, more of just a timesaver
+import pandas as pd
 import os
 from repository_utils import get_repo_root
 
@@ -54,3 +51,5 @@ for key, df in dataset_dict.items():
     df.rename(columns={"USEP ($/MWh)": "Grams of gold / MWh"}, inplace=True)
 
     df.to_csv(f"2018 {key}.csv")
+
+if pyforest.active_imports(): warnings.warn(f"{pyforest.active_imports()} modules are not imported")
