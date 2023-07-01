@@ -3,15 +3,13 @@ import warnings
 import pyforest  # this will import any common modules that you missed, more of just a timesaver
 import pandas as pd
 import os
-from repository_utils import get_repo_root
+from repository_utils import get_repo_root, log
 
 Gold_dataset = pd.read_csv(
     os.path.join(get_repo_root(), "Datasets/Ruiwen/Gold prices/1979-2021 gold prices datetime changed.csv"))
 
 Gold_dataset["DateTime"] = pd.to_datetime(Gold_dataset["DateTime"])
 PRICE_OF_GOLD_IN_2018 = Gold_dataset[Gold_dataset["DateTime"].dt.year == 2018].mean()
-
-print(PRICE_OF_GOLD_IN_2018)
 
 dataset_dict = {}
 
@@ -52,4 +50,4 @@ for key, df in dataset_dict.items():
 
     df.to_csv(f"2018 {key}.csv")
 
-if pyforest.active_imports(): warnings.warn(f"{pyforest.active_imports()} modules are not imported")
+log(f"{pyforest.active_imports()} modules are not imported")
