@@ -1,3 +1,4 @@
+import datetime
 import sys
 import os
 import importlib.util
@@ -24,3 +25,7 @@ def import_file_from_repository(relative_path):
 
 def get_repo_root():
     return os.path.dirname(os.path.abspath(__file__))
+
+
+def log(text, file = False):
+    print(f"DEBUG {datetime.datetime.now().strftime('%H:%M:%S')}: {text}", file=sys.stderr)
