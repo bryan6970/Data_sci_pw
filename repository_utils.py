@@ -3,6 +3,8 @@ import sys
 import os
 import importlib.util
 
+import pandas as pd
+
 
 def import_file_from_repository(relative_path):
     # Get the current directory (root directory of the repository)
@@ -29,3 +31,10 @@ def get_repo_root():
 
 def log(text, file = False):
     print(f"DEBUG {datetime.datetime.now().strftime('%H:%M:%S')}: {text}", file=sys.stderr)
+
+    if file is not False:
+
+        print(f"logging to {file}")
+        with open(file, "w") as f:
+            f.write(datetime.datetime.now().strftime('%H:%M:%S') + "\n")  # Write the current timestamp
+            f.write(text)  # Write the text
