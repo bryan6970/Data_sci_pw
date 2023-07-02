@@ -8,6 +8,9 @@
 >4. training
 
 Limitations have not been decided yet, so data from whatever time frame is ok.
+
+For energy this 
+
 Trading currency is EURO
 
 ## Yu feng's tasks
