@@ -7,13 +7,13 @@
 >3. Data cleaning
 >4. training
 
-Time step --> every half hour
-Time period --> 2018 - 2023 
+Time step --> every half hour  
+Time period --> 2018 - 2023   
 
-For correlation coef, if -0.5 <= correlation <=0.5, delete the column.
+For correlation coef, if -0.5 <= correlation <=0.5, delete the column.  
 
-Keep the correlation coefficient in a txt file. 
-Make a new folder for each dataset, clean.py, original file, cleaned file, and correlation coefficient should be in there
+Keep the correlation coefficient in a txt file.   
+Make a new folder for each dataset, clean.py, original file, cleaned file, and correlation coefficient should be in there.  
 
 Trading currency is EURO
 
