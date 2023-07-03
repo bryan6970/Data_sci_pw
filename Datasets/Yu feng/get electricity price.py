@@ -32,42 +32,53 @@ GOLD_PRICE_df["DateTime"] = pd.to_datetime(GOLD_PRICE_df["DateTime"])
 
 GOLD_PRICE_df = GOLD_PRICE_df.reset_index(drop=True)
 
-
 Exchange_rate_df = pd.read_csv(
     "../Generic (These datasets are like those of amount of energy, all datasets here are cleaned)/SGD_EUR Historical Data.csv")
+
+print(list(GOLD_PRICE_df.isna()))
+print(list(Exchange_rate_df.isna()))
+
 
 # Call the function to load the CSV files into a dictionary
 datasets = load_csv_files(r"Datasets/Raw")
 
 df = pd.concat(datasets.values())
 
-print(df)
-
-df["TCL(MW)"].fillna(df["TCL (MW)"], inplace=True)
-
 df["DATE"].dropna(inplace=True)
 df["DATE"] = pd.to_datetime(df["DATE"], format="mixed")
-df["DATE"] = df.apply(lambda row: row["DATE"] + pd.Timedelta(minutes=row["PERIOD"] * 30), axis=1)
+df["DateTime"] = df.apply(lambda row: row["DATE"] + pd.Timedelta(minutes=row["PERIOD"] * 30), axis=1)
 
-df.drop(["TCL (MW)", "LCP ($/MWh)", "INFORMATION TYPE", "PERIOD"], axis=1, inplace=True)
+df.set_index("DateTime", inplace=True)
+
+df.drop(["TCL (MW)", "TCL(MW)", "LCP ($/MWh)", "INFORMATION TYPE", "PERIOD", "DATE"], axis=1, inplace=True)
+
+
+# Adjust scale
+df["USEP ($/MWh)"] *= 10e3
 
 # Interpolate data
-df.set_index("DATE", inplace=True)
-df["USEP ($/MWh)"].interpolate(method="time")
+df["USEP ($/MWh)"].interpolate(method="time", inplace=True)
+
+print(df)
 
 # Map SGD to EUR
 Exchange_rate_df["DateTime"] = pd.to_datetime(Exchange_rate_df["DateTime"])
-day_to_value = dict(zip(Exchange_rate_df["DateTime"].dt.day, Exchange_rate_df["SGD to EUR"]))
+Exchange_rate_df.set_index("DateTime", inplace=True)
+Exchange_rate_df = Exchange_rate_df.resample("30T").fillna("ffill")
+
+day_to_value = dict(zip(Exchange_rate_df.index.day, Exchange_rate_df["SGD to EUR"]))
 df["USEP ($/MWh)"] *= df.index.day.map(day_to_value)
 
-
 # Map the $ to the day
-day_to_value = dict(zip(GOLD_PRICE_df["DateTime"].dt.day, GOLD_PRICE_df["Europe(EUR) / gram"]))
+GOLD_PRICE_df["DateTime"] = pd.to_datetime(GOLD_PRICE_df["DateTime"])
+GOLD_PRICE_df.set_index("DateTime", inplace=True)
+GOLD_PRICE_df = GOLD_PRICE_df.resample("30T").fillna("ffill")
+
+day_to_value = dict(zip(GOLD_PRICE_df.index.day, GOLD_PRICE_df["Europe(EUR) / gram"]))
 df["USEP ($/MWh)"] /= df.index.day.map(day_to_value)
 
-df.rename(columns={"USEP ($/MWh)":"USEP (Gram of gold/MWh)"}, inplace=True)
+df.rename(columns={"USEP ($/MWh)": "USEP (Milligrams of gold/MWh)"}, inplace=True)
 
-df.fillna(0)
-
+df.fillna(0, inplace=True)
 
 df.to_csv("Cleaned singapore electricity usage and demand.csv")
