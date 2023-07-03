@@ -26,11 +26,15 @@ def load_csv_files(folder_path):
 
 
 GOLD_PRICE_df = pd.read_csv(
-    os.path.join(get_repo_root(), "Datasets/Ruiwen/Gold prices/1979-2021 gold prices datetime changed.csv"))
+    "../Generic (These datasets are like those of amount of energy, all datasets here are cleaned)/1979-2021 gold prices datetime changed.csv")
 
 GOLD_PRICE_df["DateTime"] = pd.to_datetime(GOLD_PRICE_df["DateTime"])
 
 GOLD_PRICE_df = GOLD_PRICE_df.reset_index(drop=True)
+
+
+Exchange_rate_df = pd.read_csv(
+    "../Generic (These datasets are like those of amount of energy, all datasets here are cleaned)/SGD_EUR Historical Data.csv")
 
 # Call the function to load the CSV files into a dictionary
 datasets = load_csv_files(r"Datasets/Raw")
@@ -47,19 +51,23 @@ df["DATE"] = df.apply(lambda row: row["DATE"] + pd.Timedelta(minutes=row["PERIOD
 
 df.drop(["TCL (MW)", "LCP ($/MWh)", "INFORMATION TYPE", "PERIOD"], axis=1, inplace=True)
 
+# Interpolate data
+df.set_index("DATE", inplace=True)
+df["USEP ($/MWh)"].interpolate(method="time")
+
 # Map SGD to EUR
-# day_to_value = dict(zip(GOLD_PRICE_df["DateTime"].dt.day, GOLD_PRICE_df["Europe(EUR)"]))
-# df["USEP ($/MWh)"] /= df["DATE"].dt.day.map(day_to_value)
+Exchange_rate_df["DateTime"] = pd.to_datetime(Exchange_rate_df["DateTime"])
+day_to_value = dict(zip(Exchange_rate_df["DateTime"].dt.day, Exchange_rate_df["SGD to EUR"]))
+df["USEP ($/MWh)"] *= df.index.day.map(day_to_value)
+
 
 # Map the $ to the day
-day_to_value = dict(zip(GOLD_PRICE_df["DateTime"].dt.day, GOLD_PRICE_df["Europe(EUR)"]))
-df["USEP ($/MWh)"] /= df["DATE"].dt.day.map(day_to_value)
+day_to_value = dict(zip(GOLD_PRICE_df["DateTime"].dt.day, GOLD_PRICE_df["Europe(EUR) / gram"]))
+df["USEP ($/MWh)"] /= df.index.day.map(day_to_value)
 
-df.rename(columns={"USEP ($/MWh)":"USEP (Gram of gold/MWh)"})
+df.rename(columns={"USEP ($/MWh)":"USEP (Gram of gold/MWh)"}, inplace=True)
 
 df.fillna(0)
 
 
-print(df)
-
-# df.to_csv("Cleaned singapore electricity usage and demand")
+df.to_csv("Cleaned singapore electricity usage and demand")

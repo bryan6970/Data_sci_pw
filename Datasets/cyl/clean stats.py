@@ -31,4 +31,6 @@ for col, corr in correlation.items():
 
 print(df)
 
+df.set_index("DateTime", inplace=True)
+
 df.to_csv("stats.csv")
