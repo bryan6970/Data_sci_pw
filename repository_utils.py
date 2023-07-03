@@ -29,11 +29,10 @@ def get_repo_root():
     return os.path.dirname(os.path.abspath(__file__))
 
 
-def log(text, file = False):
+def log(text, file=False):
     print(f"DEBUG {datetime.datetime.now().strftime('%H:%M:%S')}: {text}", file=sys.stderr)
 
     if file is not False:
-
         print(f"logging to {file}")
         with open(file, "w") as f:
             f.write(datetime.datetime.now().strftime('%H:%M:%S') + "\n")  # Write the current timestamp
