@@ -70,4 +70,4 @@ df.rename(columns={"USEP ($/MWh)":"USEP (Gram of gold/MWh)"}, inplace=True)
 df.fillna(0)
 
 
-df.to_csv("Cleaned singapore electricity usage and demand")
+df.to_csv("Cleaned singapore electricity usage and demand.csv")
