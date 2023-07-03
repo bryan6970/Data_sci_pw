@@ -48,8 +48,8 @@ df["DATE"] = df.apply(lambda row: row["DATE"] + pd.Timedelta(minutes=row["PERIOD
 df.drop(["TCL (MW)", "LCP ($/MWh)", "INFORMATION TYPE", "PERIOD"], axis=1, inplace=True)
 
 # Map SGD to EUR
-day_to_value = dict(zip(GOLD_PRICE_df["DateTime"].dt.day, GOLD_PRICE_df["Europe(EUR)"]))
-df["USEP ($/MWh)"] /= df["DATE"].dt.day.map(day_to_value)
+# day_to_value = dict(zip(GOLD_PRICE_df["DateTime"].dt.day, GOLD_PRICE_df["Europe(EUR)"]))
+# df["USEP ($/MWh)"] /= df["DATE"].dt.day.map(day_to_value)
 
 # Map the $ to the day
 day_to_value = dict(zip(GOLD_PRICE_df["DateTime"].dt.day, GOLD_PRICE_df["Europe(EUR)"]))
