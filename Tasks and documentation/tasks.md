@@ -9,9 +9,11 @@
 
 Limitations have not been decided yet, so data from whatever time frame is ok.
 
-For energy this 
+For correlation coef, if -0.5 <= correlation <=0.5, delete the column
 
 Trading currency is EURO
+
+>TCL and LCP **CANNOT** be used.
 
 ## Yu feng's tasks
 
