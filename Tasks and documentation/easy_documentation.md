@@ -4,15 +4,16 @@
 - In no way is this piece of documentation accurate or reliable, use it at your own risk  
 ```
 # Install all libraries used
+Try `cd ..` in the terminal if it doesn't work, and then rerun the code below.
 ```shell
 pip install -r requirements.txt
 ```
 
 # For after 26/6/23
 ```shell
-pip install matplotlib
 ```
 
+pip install matplotlib
 # Pandas
 ## Import the library
 ```python
