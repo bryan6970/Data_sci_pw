@@ -3,7 +3,7 @@ import pandas as pd
 
 
 df = pd.read_csv(
-    "../Generic (These datasets are like those of amount of energy, all datasets here are cleaned)/SGD_EUR Historical Data.csv")
+    "SGD_EUR Historical Data.csv")
 
 df["DateTime"] = pd.to_datetime(df['Date'])
 

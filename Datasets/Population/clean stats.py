@@ -7,7 +7,7 @@ from repository_utils import get_repo_root
 
 df = pd.read_csv("stats.csv")
 
-ElectricityDemand_df = pd.read_csv("../Yu feng/Cleaned singapore electricity usage and demand.csv")
+ElectricityDemand_df = pd.read_csv("../Electricity price and demand/Cleaned singapore electricity usage and demand.csv")
 ElectricityDemand_df["DateTime"] = pd.to_datetime(ElectricityDemand_df["DateTime"], format="%Y-%m-%d %H:%M:%S")
 
 ElectricityDemand_df.set_index("DateTime", inplace=True)
