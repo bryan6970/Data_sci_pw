@@ -9,11 +9,6 @@ Try `cd ..` in the terminal if it doesn't work, and then rerun the code below.
 pip install -r requirements.txt
 ```
 
-# For after 26/6/23
-```shell
-```
-
-pip install matplotlib
 # Pandas
 ## Import the library
 ```python
