@@ -37,7 +37,7 @@ def plot_df(df, plot_type="line", round_=2, save=False, together=False, figsize=
     Parameters:
         df (pandas.DataFrame): The DataFrame containing the data to be plotted.
         figsize (tuple, optional): Figure size in inches (width, height). Default is (8, 6).
-        plot_type (str, optional): Type of plot. Can be "line", "bar", "scatter", or "area". Default is "line".
+        plot_type (str, optional): Type of plot. Can be "line", "bar", "barh", "hist", "box", "kde"/"density", "pie", or "area". Default is "line".
         together (bool, optional): If True, plots all columns on the same plot. If False, each column has a separate plot. Default is False.
         round_ (int or None, optional): Number of decimal places to round the values. Default is 2.
         save (bool, optional): If True, saves the plots as images. Default is False.
