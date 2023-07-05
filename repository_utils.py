@@ -1,4 +1,6 @@
 import datetime
+import pyforest
+import matplotlib.pyplot as plt
 import sys
 import os
 import importlib.util
@@ -24,6 +26,52 @@ def import_file_from_repository(relative_path):
     # Return the imported module
     return module
 
+def plot_df(df, figsize=(8, 6), plot_type="line", together=False):
+    """
+    Plot DataFrame columns against the index.
+
+    Parameters:
+        df (pandas.DataFrame): The DataFrame containing the data to be plotted.
+        figsize (tuple, optional): Figure size in inches (width, height). Default is (8, 6).
+        plot_type (str, optional): Type of plot. Can be "line", "bar", "scatter", or "area". Default is "line".
+        together (bool, optional): If True, plots all columns on the same plot. If False, each column has a separate plot. Default is False.
+
+    Returns:
+        None
+    """
+    if together:
+        fig, ax = plt.subplots(figsize=figsize)
+        for column in df.columns:
+            if plot_type == "line":
+                ax.plot(df.index, df[column].astype(str), label=column)
+            elif plot_type == "bar":
+                ax.bar(df.index, df[column].astype(str), label=column)
+            elif plot_type == "scatter":
+                ax.scatter(df.index, df[column].astype(str), label=column)
+            elif plot_type == "area":
+                ax.fill_between(df.index, df[column].astype(str), alpha=0.5, label=column)
+
+        ax.set_xlabel('Index')
+        ax.set_ylabel('Value')
+        ax.legend()
+        plt.show()
+    else:
+        for column in df.columns:
+            fig, ax = plt.subplots(figsize=figsize)
+            if plot_type == "line":
+                ax.plot(df.index, df[column].astype(str))
+            elif plot_type == "bar":
+                ax.bar(df.index, df[column].astype(str))
+            elif plot_type == "scatter":
+                ax.scatter(df.index, df[column].astype(str))
+            elif plot_type == "area":
+                ax.fill_between(df.index, df[column].astype(str), alpha=0.5)
+
+            ax.set_xlabel('Index')
+            ax.set_ylabel('Value')
+            ax.set_title(column)
+            plt.show()
+    fig, ax = plt.subplots(figsize=figsize)
 
 def get_repo_root():
     return os.path.dirname(os.path.abspath(__file__))
