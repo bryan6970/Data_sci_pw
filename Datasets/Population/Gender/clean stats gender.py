@@ -1,5 +1,7 @@
 import pyforest
 import pandas as pd
+from numpy import nan as NaN
+import repository_utils
 
 df = pd.read_csv("statsgender.csv")
 
@@ -14,9 +16,11 @@ df = df[1:]
 
 print(df.index)
 
-# There is a better way do this for sure, but i'm not sure how sorry
-df.index = [str.strip(no) for no in df.index]
+df.index = df.index.str.replace(" ", "")
+
+df.replace("na", NaN, inplace=True)
 
 df.index = pd.to_datetime(df.index, format="%Y", errors="coerce")
 # %Y basically means only year in YYYY format, "coerce" means that any errors will just become a NaT (Not a Time) value
 
+repository_utils.plot_df(df)
