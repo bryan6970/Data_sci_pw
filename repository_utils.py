@@ -83,7 +83,7 @@ def plot_df(df, plot_type="line", round_=2, save=False, together=False, figsize=
             set_label = plot_according_to_type(plot_type)
 
         if set_label:
-            ax.set_xlabel(df.index)
+            ax.set_xlabel(df.index.name)
             ax.set_ylabel("Columns")
             ax.legend()
 
@@ -97,10 +97,12 @@ def plot_df(df, plot_type="line", round_=2, save=False, together=False, figsize=
     else:
         for column in df.columns:
             fig, ax = plt.subplots(figsize=figsize)
-            plot_according_to_type(plot_type)
+            set_label = plot_according_to_type(plot_type)
 
-            ax.set_xlabel(df.index.name)
-            ax.set_ylabel(column)
+            if set_label:
+                ax.set_xlabel(df.index.name)
+                ax.set_ylabel(column)
+
             ax.set_title(f"Graph of {df.index.name} against Columns {column}")
 
             plt.legend()
