@@ -26,6 +26,9 @@ def import_file_from_repository(relative_path):
     # Return the imported module
     return module
 
+def get_proper_cwd():
+    return os.path.dirname(os.path.abspath(__file__))
+
 
 def plot_df(df, plot_type="line", round_=2, save=False, together=False, figsize=(8, 6)):
     """
