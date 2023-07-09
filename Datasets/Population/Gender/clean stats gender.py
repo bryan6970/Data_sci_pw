@@ -25,4 +25,4 @@ df.index = pd.to_datetime(df.index, format="%Y", errors="coerce")
 
 df.index.name = "DateTime"
 
-repository_utils.plot_df(df, together=True)
+repository_utils.plot_df(df, together=False)
