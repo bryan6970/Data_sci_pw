@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="US">
+<head>
+  <title>PROJECT GREEN</title>
+  <link rel="stylesheet" href="">
+  <script src="script.js"></script> <!-- Include the JavaScript file -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: #333333;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      color: #333333;
+      padding-left: 30px;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .navbar li {
+      margin: 0 25px;
+    }
+
+    .navbar li:first-child {
+      margin-left: 0;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      padding: 10px;
+      transition: background-color 0.3s ease-in-out;
+      border-bottom: 3px solid transparent; /* Add transparent border to prevent text movement */
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+      padding-bottom: 7px; /* Adjust the padding to compensate for the border size */
+      border-bottom-color: #fff; /* Change the border color on hover */
+    }
+
+    .textgreen {
+      color: #A1E8A1;
+      font-size: 24px;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body>
+<div class="navbar">
+  <ul>
+    <li class="textgreen"><b>PROJECT GREEN</b></li>
+    <li onclick="goHome()"><a href="#">Home</a></li>
+    <li onclick="openGithubPage()"><a href="#">Our Github</a></li>
+    <li><a href="#">Parameters</a></li>
+  </ul>
+</div>
+
+</body>
+</html>
