@@ -8,9 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            justify-content: center;
-            margin: 0;
-
+            margin:0;
         }
 
         .params {
@@ -42,42 +40,34 @@
 
         .section1 {
             text-align: center;
-            padding: 30px;
-        }
-        #navbar iframe{
-            width: 100%;
-            height: 100%;
-            margin: 0;
-        }
-        .h1{
-            text-align:center;
-            padding:20px;
-            
-        }
-        .about {
-          width: 80%;
-          height: 500px;
-          background-color: #D3D3D3;
-          color: #333;
-          text-align: center;
-          font-size: 18px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          border-radius: 10px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
-            margin: auto;
+        }
+        /* #navbar iframe{ */
+            /* width: 100%; */
+            /* height: 100%; */
+            /* margin: 0; */
+        /* } */
+
+   .about {
+  max-width: 700px;
+  height: auto;
+  background-color: #D3D3D3;
+  color: #333;
+  text-align: center;
+  font-size: 18px;
+  padding: 40px;
+  margin: 35px ;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .about h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .about p {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .about a {
@@ -90,33 +80,110 @@
   background-color: #BEBEBE;
 }
 
-.about_us{
-    /*position: relative;*/
-    margin: auto;
+.mission {
+  height: auto;
+  background-color: #D3D3D3;
+  color: #333;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width:auto;
+  padding:1px;
+
+
+}
+
+    .green{
+        font-style:bold;
+        color:green;
+    }
+	
+   .footer{
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: grey;
+   color: white;
+   text-align: center;
+   padding:30px;
+    }
+    .white{
+        color:white;
+        font-weight:bold;
+    }
+    .lime{
+        color:lime;
+    }
+	
+	.segment1{
+
+	text-align:center;
+	}
+
+	
+	
+	#main { 
+    width: 100%;
+    margin: 0 auto;
 }
 
 
     </style>
+	
+    <iframe src="navbar.html" id="navbar-iframe" width="100%" height="50px" style="position: fixed; top: 0; left: 0; z-index: 100;"></iframe>
 </head>
 
 <body>
-<iframe src="navbar.html" id="navbar iframe" width="100%" height="50px"></iframe>
-<div class="about_us">
-    <h1 class = "h1">About Us</h1>
-    <div class = "about">
-    <h4>We are PROJECT GREEN, a group of Secondary three students from HCI aiming to use data science to use data we collected to find energy statistics and make models to help the country become more green energy wise.</h4>
 
-    </div>
+<div id="main">
+    <div style="text-align:center; margin-top:45px;background-color:black;color:white; height:100px; padding-top:20px;"><h1>About Us</h1></div>
+<table>
+
+<tr>
+<td rowspan="2">
+<div class="segment1">
+<div class = "about">
+        <h2 class = "green">Welcome to PROJECT GREEN!</h2>
+        <p>We are a dedicated group of Secondary three students from HCI (Hwa Chong Institution) who are passionate about utilizing data science to drive positive change in our country's energy landscape. Our mission is to gather and analyze energy statistics, and develop innovative models and strategies that promote the adoption of green energy sources.</p>
+        <p>By leveraging the power of data, we aim to contribute towards a sustainable and environmentally conscious future. Through our research and insights, we aspire to empower individuals, communities, and policymakers to make informed decisions that lead to a greener and more sustainable world.</p>
+        <p>Join us on this journey towards a brighter and cleaner future!</p>
+</div >
 </div>
+</td>
 
-<div class="w3-panel w3-card">
-    <div class="section1">
-        <h1>Our Model Parameters</h1>
-        <label for="input1">Param 1</label><input type="text" id="input1" name="input1" class="params" placeholder="Input here..."><br><br>
-        <label for="input2">Param 2</label><input type="text" id="input2" name="input2" class="params" placeholder="Input here..."><br><br>
+<td >
+<div class = "mission">
+    <div style="text-align:center;"><h1>Our Mission</h1></div>  
+<p></p>
+</div >
+<td>
+</tr>
+
+<tr>
+<td>
+<div style="text-align:center;"><h1>Our Mission</h1></div>  
+<div class = "mission">
+<p>their mission here</p>
+<p>their mission here</p>
+<p>their mission here</p>
+</div >
+</td>
+</tr>   
+</table>
+
+<div style="text-align:center;">
+  <h1>Our Model Parameters</h1>
+        <label for="input1">Param 1</label>&nbsp;&nbsp;<input type="text" id="input1" name="input1" class="params" placeholder="Input here..." ><br><br>
+        <label for="input2">Param 2</label>&nbsp;&nbsp;<input type="text" id="input2" name="input2" class="params" placeholder="Input here..."><br><br>
         <input type="submit" value="Submit" class="submit">
-        <br>
-    </div>
 </div>
+
+<div style="margin-bottom:100px;"></div>
+
+<div class="footer">
+    <h1 class =  "white">Project Green 2023</h1>
+    <p class = "lime">For a greener future.</p>
+  </div>
 </body>
 </html>
