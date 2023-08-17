@@ -34,6 +34,7 @@
     .navbar a {
       text-decoration: none;
       color: white;
+        text-decoration-color: white;
       font-size: 18px;
       padding: 10px;
       transition: background-color 0.3s ease-in-out;
@@ -44,6 +45,13 @@
       background-color: #555;
       padding-bottom: 7px;
       border-bottom-color: #fff;
+
+        text-decoration-color: white;
+        color: white;
+    }
+
+    .SOUHhoruruceou{
+        text-decoration: none;
     }
 
     .textgreen {
